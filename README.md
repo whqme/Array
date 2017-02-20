@@ -172,8 +172,8 @@ var words=["we","two","who","and","who"];
        concat: var newArr=arr.concat(值1,值2,[值3,值4].....)
        slice: var subArr=arr.slice(starti[,endi+1]);
                  starti: 开始的位置下标
-                 endi: 获取到的位置下表
-                 ***含头不含尾***
+                 endi: 获取到的位置下标
+                 ** *含头不含尾** *
                  slice支持倒数下标
                  省略endi，从starti一直取到结尾
 
