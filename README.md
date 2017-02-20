@@ -1,5 +1,3 @@
-# Array
-创建和访问数组及使用方法
 ## 数组 ##
 数组：一组变量的集合，起一个统一的名字。
 如何使用数组：创建   取值    赋值
@@ -124,7 +122,76 @@ var week=["日","一","二","三","四","五","六"];
                    key    value
          关联数组中保存的是多个key/value对儿
                             键  值
+//数组去重
+
+```
+           var arr=[2,2,4,5,3,6,5,3];
+			function myArr(arr){
+				var arr1=[];
+				for(var i=0;i<arr.length;i++){
+					if(arr1.indexOf(arr[i])==-1){
+						arr1.push(arr[i]);
+					}
+				}
+				return arr1;
+			}
+			console.log(arr);
+			console.log(myArr(arr));
+```
+如何遍历关联数组：
+       for(var key in arr){
+	//依次取出arr中每个key，存在变量key中
+	arr[key]-->获得当前正在遍历的key中存储的值
+       }
+
+   ## 数组API ##
+
+数组转换成字符串：有两种方法
+
+ 1. var str=arr.toString(); 默认只能以逗号分隔每个元素。
+ 2. var str=arr.join("连接符");自定义元素间的连接符
+**固定套路：**
+           1. 将字符数组，无缝拼接为单词：
+              比如: var chars=["H","e","l","l","o"];
+           2. 将单词数组，拼接为句子：
+           3. 将数组转化为页面上的列表/选择元素：
+           
+   **优化：频繁字符串拼接，推荐使用数组的join方法作为替代**
+          步骤：
+	    1. 先将要拼接的子字符串，放入一个数组中，临时保存
+        2. 遍历结束后，一次性join成一个完整字符串 
+    
+
+```
+var words=["we","two","who","and","who"];
+	var str=words.join(" ");
+	console.log(str);//we two who and who
+
+```
+**连接数组和获取子数组：不修改原数组对象，返回新数组对象**
+       concat: var newArr=arr.concat(值1,值2,[值3,值4].....)
+       slice: var subArr=arr.slice(starti[,endi+1]);
+                 starti: 开始的位置下标
+                 endi: 获取到的位置下表
+                 ***含头不含尾***
+                 slice支持倒数下标
+                 省略endi，从starti一直取到结尾
+
+```
+            var arr=[1,4,3];
+			var arr1=[22,44];
+			var newArr=arr.concat(13,134,arr1);
+			console.log(arr);
+```
 
 
-   
+ **splice：删除，插入，替换任意位置的任意个元素**
+        ***直接修改原数组 
+	删除：splice(starti,n);//starti
+```
+            var arr=[1,2,4,4,5];
+			var id=arr.splice(2,2);
+			console.log(arr);
+			console.log(id);
+```
 
